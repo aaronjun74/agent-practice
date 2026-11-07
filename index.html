@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>에이전트 연습 일지 | Agent Practice Log</title>
+  <style>
+    /* ===== 기본 색과 글꼴 ===== */
+    :root {
+      --bg: #fdf8f2;          /* 따뜻한 미색 배경 */
+      --card: #ffffff;
+      --text: #3b3a36;
+      --muted: #8a857c;
+      --accent: #e8894a;      /* 따뜻한 주황 */
+      --accent-soft: #fbe7d8;
+      --line: #eee6dc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      line-height: 1.6;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 40px 20px 60px; }
+
+    /* ===== 머리말 ===== */
+    header { text-align: center; margin-bottom: 32px; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header .en { color: var(--muted); font-size: 1rem; margin-top: 4px; }
+    header .intro {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 10px 18px;
+      background: var(--accent-soft);
+      border-radius: 999px;
+      font-size: 0.95rem;
+    }
+
+    /* ===== 카드 ===== */
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    .card h2 { margin: 0 0 16px; font-size: 1.25rem; }
+    .card h2 small { color: var(--muted); font-weight: normal; font-size: 0.85rem; margin-left: 6px; }
+
+    /* ===== 연습기록 표 ===== */
+    .table-box { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; }
+    th, td { padding: 12px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 0.95rem; }
+    th { background: var(--accent-soft); white-space: nowrap; }
+    td.date { white-space: nowrap; color: var(--accent); font-weight: bold; }
+
+    /* ===== 단계별 체크리스트 ===== */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .step { border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+    .step h3 { margin: 0 0 10px; font-size: 1rem; color: var(--accent); }
+    .step ul { list-style: none; margin: 0; padding: 0; }
+    .step li { padding: 4px 0 4px 26px; position: relative; font-size: 0.92rem; }
+    .step li::before { content: "☐"; position: absolute; left: 0; color: var(--muted); }
+    .step li.done::before { content: "☑"; color: var(--accent); }
+
+    footer { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 40px; }
+
+    /* ===== 휴대폰 화면 ===== */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.5rem; }
+      .card { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <h1>에이전트 연습 일지</h1>
+      <div class="en">Agent Practice Log</div>
+      <div class="intro">
+        완벽한 것이 아니라 나아가는 것 — 매일 하나씩 해보고 기록합니다.<br>
+        <span style="color: var(--muted);">Not perfect, but moving forward — one small step a day.</span>
+      </div>
+    </header>
+
+    <!-- 연습기록: 새 연습을 하면 <tr> 한 줄을 맨 아래에 추가하면 된다 -->
+    <section class="card">
+      <h2>연습 기록 <small>Practice Records</small></h2>
+      <div class="table-box">
+        <table>
+          <thead>
+            <tr>
+              <th>날짜</th>
+              <th>해본 것</th>
+              <th>배운 점</th>
+              <th>다음에 해볼 것</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="date">2026-11-04</td>
+              <td>연습 폴더 만들고 CLAUDE.md 작성</td>
+              <td>CLAUDE.md는 이 폴더에서 에이전트가 매번 먼저 읽는 지침</td>
+              <td>루페 조사 에이전트 2개 동시 실행해보기</td>
+            </tr>
+            <tr>
+              <td class="date">2026-11-07</td>
+              <td>settings.json 살펴보기, 연습 일지 웹페이지 만들기</td>
+              <td>settings.json은 허용·금지 규칙을 정하는 파일. index.html 파일 하나로도 웹사이트가 된다</td>
+              <td>GitHub Pages로 인터넷에 게시하기</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 단계별 과제: 끝낸 항목은 <li class="done"> 으로 바꾸면 체크 표시가 된다 -->
+    <section class="card">
+      <h2>단계별 연습 과제 <small>Practice Roadmap</small></h2>
+      <div class="steps">
+        <div class="step">
+          <h3>1단계 · 기본</h3>
+          <ul>
+            <li>메모를 .md 파일로 저장하기</li>
+            <li>여러 파일 읽고 한 장으로 요약하기</li>
+            <li>엑셀/CSV 자료를 표로 정리하기</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h3>2단계 · 서브에이전트</h3>
+          <ul>
+            <li>국내·해외 루페 조사 동시 실행</li>
+            <li>dm-writer 에이전트 만들기</li>
+            <li>haping-content 에이전트 만들기</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h3>3단계 · 자동화</h3>
+          <ul>
+            <li>매일 아침 체크 루틴 (/schedule)</li>
+            <li>반복 작업 루프 (/loop)</li>
+            <li>Google Sheets·Docs로 내보내기</li>
+          </ul>
+        </div>
+        <div class="step">
+          <h3>4단계 · 실무 적용</h3>
+          <ul>
+            <li>팀장님 업무에 맞게 에이전트 다듬기</li>
+            <li>매뉴얼·체크리스트로 위임 자료 만들기</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>Haping · Happy Growing</footer>
+  </div>
+</body>
+</html>
